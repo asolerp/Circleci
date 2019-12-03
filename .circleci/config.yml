@@ -45,8 +45,7 @@ jobs:
       # run tests!
       - run: yarn test
 
-      - cypress/run:
-          yarn: true
+      - run: yarn ci:cypress-run
 
       # snyk vulnerabilities on packages
       - snyk/scan:
