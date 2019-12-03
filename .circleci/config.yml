@@ -6,12 +6,6 @@ version: 2.1
 orbs:
   snyk: snyk/snyk@0.0.8
   cypress: cypress-io/cypress@1.13.0
-  heroku: circleci/heroku@0.0.9
-
-workflows:
-heroku_deploy:
-  jobs:
-    - deploy
 
 jobs:
   build:
@@ -59,10 +53,3 @@ jobs:
           fail-on-issues: false
           monitor-on-build: false
           severity-threshold: high
-  deploy:
-    executor: heroku/default
-    steps:
-      - checkout
-      - heroku/install
-      - heroku/deploy-via-git:
-          only-branch: master
