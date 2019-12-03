@@ -5,6 +5,7 @@
 version: 2.1
 orbs:
   snyk: snyk/snyk@0.0.8
+  cypress: cypress-io/cypress@1
 jobs:
   build:
     docker:
@@ -43,6 +44,8 @@ jobs:
 
       # run tests!
       - run: yarn test
+
+      - run: yarn ci:cypress-run
 
       # snyk vulnerabilities on packages
       - snyk/scan:
